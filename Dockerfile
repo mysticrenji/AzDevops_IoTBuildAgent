@@ -66,11 +66,17 @@ RUN curl -SL --output dotnet.tar.gz https://dotnetcli.azureedge.net/dotnet/Sdk/$
     # Add NuGet cache (ARM SDK doesn't include it)
     && curl -SL --output /usr/share/dotnet/sdk/$DOTNET_SDK_VERSION/nuGetPackagesArchive.lzma https://dotnetcli.azureedge.net/dotnet/Sdk/$DOTNET_SDK_VERSION/nuGetPackagesArchive.lzma 
 
+
+RUN apt-get update && apt-get install -y locales  && rm -rf /var/lib/apt/lists/* \
+    && localedef -i en_US -c -f UTF-8 -A /usr/share/locale/locale.alias en_US.UTF-8
+ENV LANG en_US.utf8
+
 WORKDIR /azp
 
 COPY ./start.sh /azp/start.sh
 COPY ./requirements.txt /azp/requirements.txt
-RUN pip install -r /azp/requirements.txt 
+RUN pip3 install -r /azp/requirements.txt
+RUN pip3 install --upgrade jsonschema 
 #    && pip install azure-cli \
 #    && az extension add --name azure-cli-iot-ext 
 RUN chmod +x /azp/start.sh
