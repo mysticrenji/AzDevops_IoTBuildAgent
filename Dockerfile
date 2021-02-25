@@ -2,7 +2,7 @@ FROM arm32v7/ubuntu:16.04
 
 ARG DOCKER_CLI_VERSION="18.06.3-ce"
 ENV DOWNLOAD_URL="https://download.docker.com/linux/static/stable/armhf/docker-$DOCKER_CLI_VERSION.tgz"
-ENV PS_VERSION=6.1.2
+ENV PS_VERSION=7.1.2
 ENV PS_PACKAGE=powershell-${PS_VERSION}-linux-arm32.tar.gz
 ENV PS_PACKAGE_URL=https://github.com/PowerShell/PowerShell/releases/download/v${PS_VERSION}/${PS_PACKAGE}
 # Install .NET Core SDK
