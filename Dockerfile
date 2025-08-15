@@ -1,4 +1,4 @@
-FROM arm32v7/ubuntu:16.04
+FROM arm32v7/ubuntu:24.04
 
 ARG DOCKER_CLI_VERSION="18.06.3-ce"
 ENV DOWNLOAD_URL="https://download.docker.com/linux/static/stable/armhf/docker-$DOCKER_CLI_VERSION.tgz"
