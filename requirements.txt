@@ -1,2 +1,2 @@
 requests==2.32.4
-pyyaml==5.4
+pyyaml==5.4.1
